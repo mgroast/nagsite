@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>タイトル生成 - なろう風小説自動生成サイト</title>
+</head>
+<body>
+    <button type="button" name="gen-button" onclick="gen();">生成</button>
+    <div id="result">
+    </div>
+    <script>
+        function gen(){
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function() {
+                if(this.readyState == 4 && this.status == 200) {
+                    if(this.response) {
+                        var div_element = document.getElementById("result");
+                        var data = this.response;
+                        div_element.innerHTML = data["title"]
+                    }
+                }
+            }
+            request.open('GET', '/api/title', true);
+            request.responseType = 'json';
+            request.send(null);
+        }
+    </script>
+</body>
+</html>
