@@ -3,11 +3,12 @@ from django.views.generic import TemplateView
 from django.http.response import JsonResponse
 import random
 
+# /api/title
 def title(request):
     #名詞 小説、私、あれ、インターネット
-    noun = ['タピオカ', '宮本', '麻雀', 'ぴかてう']
+    #noun = ['タピオカ', '宮本', '麻雀', 'ぴかてう']
     #動名詞
-    vnoun = ['転生', '計画', '拒否']
+    #vnoun = ['転生', '計画', '拒否']
     #動詞 する、いる、ある、思う
     #形容詞 ない、面白い、よい、早い
     #副詞 ちょっと、まだ、少し
@@ -19,6 +20,10 @@ def title(request):
     #感動詞	ええ、なるほど、さあ、うん
     #フィラー	ええと、まあ、あー
     #記号	。 、 「 」 … ！ ？
-    title = f"{random.choice(vnoun)}したら{random.choice(noun)}だった件"
+    #title = f"{random.choice(vnoun)}したら{random.choice(noun)}だった件"
     result = { "title": title }
     return JsonResponse(result)
+
+# タイトル生成
+def create_title():
+    return "title"
